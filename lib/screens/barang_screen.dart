@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/barang.dart';
 import '../services/barang_service.dart';
 import 'barang_detail_screen.dart';
+import '../config.dart';
 
 class BarangScreen extends StatefulWidget {
   const BarangScreen({super.key});
@@ -45,7 +46,7 @@ class _BarangScreenState extends State<BarangScreen> {
                 child: ListTile(
                   leading: barang.foto != null
                       ? Image.network(
-                          'http://192.168.1.2:8000/storage/${barang.foto}',
+                          '$storageBaseUrl/${barang.foto}',
                           width: 80,
                           height: 80,
                           fit: BoxFit.cover,

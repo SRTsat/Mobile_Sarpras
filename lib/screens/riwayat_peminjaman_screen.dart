@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import '../services/auth_service.dart';
+import '../config.dart';
 
 class RiwayatPeminjamanScreen extends StatefulWidget {
   const RiwayatPeminjamanScreen({super.key});
@@ -116,7 +117,7 @@ class _RiwayatPeminjamanScreenState extends State<RiwayatPeminjamanScreen> {
 
                     setState(() => _isSubmitting = true);
                     final token = await AuthService.getToken();
-                    final uri = Uri.parse('http://192.168.1.2:8000/api/pengembalian');
+                    final uri = Uri.parse('$baseUrl/pengembalian');
                     final request = http.MultipartRequest('POST', uri);
                     request.headers['Authorization'] = 'Bearer $token';
 

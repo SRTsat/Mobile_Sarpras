@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../models/barang.dart';
 import '../services/api_service.dart';
+import '../config.dart';
 
 class BarangDetailScreen extends StatefulWidget {
   final Barang barang;
@@ -63,7 +64,7 @@ class _BarangDetailScreenState extends State<BarangDetailScreen> {
           children: [
             if (barang.foto != null)
               Image.network(
-                'http://192.168.1.2:8000/storage/${barang.foto}',
+                '$storageBaseUrl/${barang.foto}',
                 height: 200,
                 errorBuilder: (context, error, stackTrace) =>
                     const Icon(Icons.broken_image, size: 100),
